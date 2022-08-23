@@ -1,6 +1,5 @@
 import java.awt.*;
 import java.awt.event.*;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.StringTokenizer;
@@ -31,15 +30,13 @@ public class NewCalculator extends JFrame implements ActionListener {
     JButton[] clear = new JButton[CLEAR.length];
     JButton[] symbol = new JButton[SYMBOl.length];
     JTextField resultText = new JTextField("0");
-    JTextField counter = new JTextField("Number count");
+    JTextField counter = new JTextField("Number counter");
 
     boolean vBegin = true;
     boolean equals_flag = true;
     boolean isContinueInput = true;
 
     final int SIZE = 100;
-
-    final float PI = 3.141592657f;
 
 
     public NewCalculator() {
@@ -76,12 +73,12 @@ public class NewCalculator extends JFrame implements ActionListener {
         for (int i = 0; i < SYMBOl.length; i++) {
             symbol[i] = new JButton(SYMBOl[i]);
             keysPanel.add(symbol[i]);
-            symbol[i].setForeground(Color.ORANGE);
+            symbol[i].setForeground(Color.MAGENTA);
         }
         for (int i = 0; i < CLEAR.length; i++) {
             clear[i] = new JButton(CLEAR[i]);
             keysPanel.add(clear[i]);
-            clear[i].setForeground(Color.ORANGE);
+            clear[i].setForeground(Color.MAGENTA);
         }
 
 
@@ -394,7 +391,7 @@ public class NewCalculator extends JFrame implements ActionListener {
 
 
         StringTokenizer expToken = new StringTokenizer(str,"/*-+()^");
-        counter.setText(String.valueOf(expToken.countTokens()));
+        counter.setText(String.valueOf(expToken.countTokens()));// количество цифр
 
         int i =0;
         while (i < str.length()){
