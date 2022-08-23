@@ -399,7 +399,7 @@ public class NewCalculator extends JFrame implements ActionListener {
             if(i == 0) {
                if (ch == '-')
                    flag = -1;
-            }else if ((str.charAt(i-1) =='(' || str.charAt(i-1) =='*' || str.charAt(i-1) =='+' || str.charAt(i-1) =='/' || str.charAt(i-1) =='^') && ch =='-') {
+            }else if ((str.charAt(i-1) =='(' || str.charAt(i-1) =='*' || str.charAt(i-1) =='+' || str.charAt(i-1) =='/') && ch =='-') {
                 flag = -1;
             }
             if(ch <= '9' && ch >='0' || ch == '.'){
@@ -428,11 +428,10 @@ public class NewCalculator extends JFrame implements ActionListener {
             if(ch ==')')
                 weightPlus -=4;
             if(ch =='/' || ch =='*' || ch =='-'
-               || ch == '+' || ch == '^' && flag == 1) {
+               || ch == '+' && flag == 1) {
                 weightTemp = switch (ch) {
                     case '+', '-' -> 1 + weightPlus;
-                    case '*', '/' -> 2 + weightPlus;
-                    default -> 4 + weightPlus;
+                    default -> 2 + weightPlus;
                 };
 
                 if(topOp == 0 || weight[topOp-1]< weightTemp){
@@ -493,11 +492,3 @@ public class NewCalculator extends JFrame implements ActionListener {
         resultText.setText(String.valueOf(number[0]));
     }
 }
-
-
-
-
-
-
-
-
