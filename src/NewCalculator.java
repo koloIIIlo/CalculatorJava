@@ -427,8 +427,8 @@ public class NewCalculator extends JFrame implements ActionListener {
                 weightPlus +=4;
             if(ch ==')')
                 weightPlus -=4;
-            if(ch =='/' || ch =='*' || ch =='-'
-               || ch == '+' && flag == 1) {
+            if((ch =='/' || ch =='*' || ch =='-'
+               || ch == '+') && flag == 1) {
                 weightTemp = switch (ch) {
                     case '+', '-' -> 1 + weightPlus;
                     default -> 2 + weightPlus;
